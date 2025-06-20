@@ -1,0 +1,14 @@
+{
+
+  "type": "module",
+
+  "dependencies": {
+
+    "google-calendar-mcp": "^1.0.9",
+
+    "mcp-google-calendar": "^0.0.5"
+
+  }
+
+}
+

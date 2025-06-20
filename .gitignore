@@ -192,3 +192,8 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+src/node_modules/
+# src/undefined/
+src/token.json
+src/credentials.json

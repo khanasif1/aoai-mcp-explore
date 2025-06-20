@@ -193,7 +193,7 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-src/node_modules/
-# src/undefined/
-src/token.json
-src/credentials.json
+src/server/node_modules/
+src/server/undefined/
+src/server/token.json
+src/server/credentials.json

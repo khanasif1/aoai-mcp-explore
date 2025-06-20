@@ -1,0 +1,169 @@
+{
+    "id": "google-calendar-mcp",
+    "name": "Google Calendar Integration",
+    "description": "Retrieves and manages Google Calendar events",
+    "version": "1.0.0",
+    "endpoints": [
+        {
+            "path": "/auth/url",
+            "method": "GET",
+            "description": "Get Google OAuth2 authorization URL",
+            "returns": {
+                "type": "string",
+                "description": "Authorization URL to redirect the user"
+            }
+        },
+        {
+            "path": "/auth/callback",
+            "method": "POST",
+            "description": "Handle OAuth2 callback after authorization",
+            "parameters": [
+                {
+                    "name": "code",
+                    "type": "string",
+                    "description": "Authorization code from Google",
+                    "required": true
+                }
+            ],
+            "returns": {
+                "type": "boolean",
+                "description": "Whether authentication was successful"
+            }
+        },
+        {
+            "path": "/calendars",
+            "method": "GET",
+            "description": "Get list of available calendars",
+            "returns": {
+                "type": "CalendarList",
+                "description": "List of available calendars"
+            }
+        },
+        {
+            "path": "/events",
+            "method": "GET",
+            "description": "Get events from a specific calendar",
+            "parameters": [
+                {
+                    "name": "calendarId",
+                    "type": "string",
+                    "description": "ID of the calendar to fetch events from",
+                    "required": true
+                },
+                {
+                    "name": "timeMin",
+                    "type": "string",
+                    "description": "Start time in ISO format",
+                    "required": false
+                },
+                {
+                    "name": "timeMax",
+                    "type": "string",
+                    "description": "End time in ISO format",
+                    "required": false
+                },
+                {
+                    "name": "maxResults",
+                    "type": "number",
+                    "description": "Maximum number of events to return",
+                    "required": false
+                }
+            ],
+            "returns": {
+                "type": "CalendarEventsList",
+                "description": "List of calendar events"
+            }
+        },
+        {
+            "path": "/events/upcoming",
+            "method": "GET",
+            "description": "Get upcoming events across all calendars",
+            "parameters": [
+                {
+                    "name": "maxResults",
+                    "type": "number",
+                    "description": "Maximum number of events to return",
+                    "required": false
+                }
+            ],
+            "returns": {
+                "type": "CalendarEvent[]",
+                "description": "List of upcoming events sorted by start time"
+            }
+        },
+        {
+            "path": "/events/create",
+            "method": "POST",
+            "description": "Create a new calendar event",
+            "parameters": [
+                {
+                    "name": "eventData",
+                    "type": "EventCreationData",
+                    "description": "Event data to create",
+                    "required": true
+                }
+            ],
+            "returns": {
+                "type": "CalendarEvent",
+                "description": "Created event details"
+            }
+        },
+        {
+            "path": "/events/update",
+            "method": "PUT",
+            "description": "Update an existing calendar event",
+            "parameters": [
+                {
+                    "name": "eventData",
+                    "type": "EventUpdateData",
+                    "description": "Event data to update",
+                    "required": true
+                }
+            ],
+            "returns": {
+                "type": "CalendarEvent",
+                "description": "Updated event details"
+            }
+        },
+        {
+            "path": "/events/delete",
+            "method": "DELETE",
+            "description": "Delete a calendar event",
+            "parameters": [
+                {
+                    "name": "deleteData",
+                    "type": "EventDeletionData",
+                    "description": "Event data to delete",
+                    "required": true
+                }
+            ],
+            "returns": {
+                "type": "boolean",
+                "description": "Whether deletion was successful"
+            }
+        },
+        {
+            "path": "/events/detail",
+            "method": "GET",
+            "description": "Get details of a specific event",
+            "parameters": [
+                {
+                    "name": "calendarId",
+                    "type": "string",
+                    "description": "ID of the calendar",
+                    "required": true
+                },
+                {
+                    "name": "eventId",
+                    "type": "string",
+                    "description": "ID of the event",
+                    "required": true
+                }
+            ],
+            "returns": {
+                "type": "CalendarEvent",
+                "description": "Detailed event information"
+            }
+        }
+    ]
+}

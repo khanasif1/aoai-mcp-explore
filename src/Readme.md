@@ -1,4 +1,4 @@
-*** All the script are tested on Windows with Powershell *** 
+***All the script are tested on Windows with Powershell*** 
 ## Run the Server
 
 -  Get in src folder 

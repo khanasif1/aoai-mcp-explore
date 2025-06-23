@@ -33,7 +33,7 @@ def start_mcp_google_calendar():
     # Run the MCP server
     print("Starting MCP Google Calendar using Node.js...\n")
     process = subprocess.Popen(
-        ["node", str(mcp_index_js)],
+        ["node", str(mcp_index_js), " --http"],
         cwd=project_dir,
         env=env,
         shell=True

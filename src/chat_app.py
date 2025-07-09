@@ -5,7 +5,7 @@ import json
 
 # --- Configuration ---
 AZURE_OPENAI_ENDPOINT = "https://ai-agent-hub-service.openai.azure.com/"
-AZURE_OPENAI_KEY = "5GIz4N7z4JZbuEnDLiPSlkCuv0oBbaroPnD8Rbj8w482hzvR7XgMJQQJ99BEACHYHv6XJ3w3AAAAACOGQFZh"
+AZURE_OPENAI_KEY = "your-azure-openai-key"  # Replace with your actual Azure OpenAI key
 DEPLOYMENT_NAME = "gpt-4.1"
 MCP_SERVER_URL = "http://localhost:3000/mcp/"
 
